@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CLB_HTSV.Models.SuKien>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TieuDe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGian)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaDiem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThanhVien)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TieuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaDiem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhVien.HoTen)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaSuKien">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaSuKien">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaSuKien">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
